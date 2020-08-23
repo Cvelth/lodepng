@@ -6521,8 +6521,8 @@ template <typename filename_t>
 unsigned encode_impl(const filename_t &filename,
                      const std::vector<unsigned char> &in, unsigned w, unsigned h,
                      LodePNGColorType colortype, unsigned bitdepth) {
-    if(lodepng_get_raw_size_lct(w, h, colortype, bitdepth) > in.size()) return 84;
-    return encode_impl(filename, in.empty() ? 0 : &in[0], w, h, colortype, bitdepth);
+  if(lodepng_get_raw_size_lct(w, h, colortype, bitdepth) > in.size()) return 84;
+  return encode_impl(filename, in.empty() ? 0 : &in[0], w, h, colortype, bitdepth);
 }
 
 unsigned encode(const std::string& filename,

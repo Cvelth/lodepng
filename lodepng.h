@@ -374,18 +374,18 @@ struct LodePNGCompressSettings /*deflate = compress*/ {
   unsigned minmatch; /*minimum lz77 length. 3 is normally best, 6 can be better for some PNGs. Default: 0*/
   unsigned nicematch; /*stop searching if >= this length found. Set to 258 for best compression. Default: 128*/
   unsigned lazymatching; /*use lazy matching: better compression but a bit slower. Default: true*/
-  
+
   /*use custom zlib encoder instead of built in one (default: null)*/
   unsigned (*custom_zlib)(unsigned char**, size_t*,
-                        const unsigned char*, size_t,
-                        const LodePNGCompressSettings*);
+                          const unsigned char*, size_t,
+                          const LodePNGCompressSettings*);
   /*use custom deflate encoder instead of built in one (default: null)
   if custom_zlib is used, custom_deflate is ignored since only the built in
   zlib function will call custom_deflate*/
   unsigned (*custom_deflate)(unsigned char**, size_t*,
-                           const unsigned char*, size_t,
-                           const LodePNGCompressSettings*);
-  
+                             const unsigned char*, size_t,
+                             const LodePNGCompressSettings*);
+
   const void* custom_context; /*optional custom settings for custom functions*/
 };
 
@@ -758,7 +758,7 @@ typedef struct LodePNGColorStats {
   unsigned char palette[1024]; /*Remembers up to the first 256 RGBA colors, in no particular order, only valid when numcolors is valid*/
   unsigned bits; /*bits per channel (not for palette). 1,2 or 4 for grayscale only. 16 if 16-bit per channel required.*/
   size_t numpixels;
-  
+
   /*user settings for computing/using the stats*/
   unsigned allow_palette; /*default 1. if 0, disallow choosing palette colortype in auto_choose_color, and don't count numcolors*/
   unsigned allow_greyscale; /*default 1. if 0, choose RGB or RGBA even if the image only has gray colors*/
