@@ -6542,7 +6542,7 @@ unsigned encode(const std::wstring& filename,
                 LodePNGColorType colortype, unsigned bitdepth) {
   return encode_impl(filename, in, w, h, colortype, bitdepth);
 }
-
+  
 unsigned encode(const std::wstring& filename,
                 const std::vector<unsigned char>& in, unsigned w, unsigned h,
                 LodePNGColorType colortype, unsigned bitdepth) {
